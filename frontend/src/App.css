@@ -1,0 +1,938 @@
+.commentary-card .card-content {
+  overflow: auto;
+}
+.commentary-card .game-log {
+  max-height: none;
+  height: 100%;
+}
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+  color: #0f172a;
+}
+
+.app-content {
+  flex: 1;
+  padding: 2.5rem 1.5rem;
+  max-width: none; /* allow full width within main area */
+  margin: 0 auto;
+  width: 100%;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 1.25rem;
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  padding: 1.75rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 30px 60px -15px rgba(15, 23, 42, 0.25);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.card-header h2 {
+  margin: 0;
+  font-size: 1.375rem;
+  font-weight: 600;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding: 0.65rem 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #0ea5e9, #2563eb);
+  color: white;
+  box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.45);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 20px 35px -10px rgba(37, 99, 235, 0.45);
+}
+
+.btn-secondary {
+  background: rgba(15, 23, 42, 0.08);
+  color: #0f172a;
+}
+
+.btn-secondary:hover {
+  background: rgba(15, 23, 42, 0.15);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: #0f172a;
+}
+
+.btn-ghost:hover {
+  background: rgba(15, 23, 42, 0.08);
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #ef4444, #b91c1c);
+  color: #fff;
+  box-shadow: 0 10px 25px -5px rgba(239, 68, 68, 0.45);
+}
+
+.btn-danger:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 20px 35px -10px rgba(185, 28, 28, 0.45);
+}
+
+.btn-loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.btn-spinner {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-top-color: white;
+  animation: spin 0.8s linear infinite;
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  border-radius: 0.875rem;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  padding: 0.75rem 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #0ea5e9;
+  box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.15);
+}
+
+.form-error {
+  color: #dc2626;
+  font-size: 0.875rem;
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2rem;
+  background: rgba(15, 23, 42, 0.85);
+  color: white;
+  box-shadow: 0 20px 40px -12px rgba(15, 23, 42, 0.45);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav-link {
+  font-weight: 600;
+  opacity: 0.85;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  opacity: 1;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.7);
+}
+
+.health-bar {
+  background: rgba(148, 163, 184, 0.3);
+  border-radius: 9999px;
+  height: 1rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.health-bar-fill {
+  height: 100%;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  transition: width 0.3s ease;
+}
+
+.health-bar-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.game-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.game-log {
+  max-height: 240px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.game-log-entry {
+  background: rgba(15, 23, 42, 0.03);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.stats-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: rgba(15, 23, 42, 0.04);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.stat-value {
+  font-weight: 700;
+}
+
+/* removed erroneous rule targeting .tekken-layout > .card that added padding/border */
+
+.timeline-entry::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 0.4rem;
+  width: 10px;
+  height: 10px;
+  background: #2563eb;
+  border-radius: 50%;
+}
+
+.timeline-entry strong {
+  display: block;
+  font-weight: 600;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  color: #475569;
+}
+
+.two-column {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 960px) {
+  .two-column {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+
+.hero-section {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .hero-section {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: #475569;
+  max-width: 540px;
+}
+
+.feature-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: 0 20px 40px -20px rgba(15, 23, 42, 0.25);
+}
+
+.layout-split {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .layout-split {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.profile-details {
+  display: grid;
+  gap: 1rem;
+}
+
+.profile-item {
+  display: flex;
+  justify-content: space-between;
+  background: rgba(15, 23, 42, 0.04);
+  padding: 1rem 1.25rem;
+  border-radius: 0.9rem;
+}
+
+.profile-item span:first-child {
+  font-weight: 600;
+  color: #475569;
+}
+
+.profile-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-divider {
+  height: 1px;
+  background: rgba(148, 163, 184, 0.3);
+  margin: 1.5rem 0;
+}
+
+.auth-page {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+  min-height: 100vh;
+  align-items: center;
+  padding: 2rem 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .auth-page {
+    grid-template-columns: 1.2fr 0.8fr;
+    padding: 4rem;
+  }
+}
+
+.auth-hero {
+  color: white;
+  background: radial-gradient(circle at top left, rgba(14, 165, 233, 0.75), rgba(37, 99, 235, 0.85));
+  padding: 3rem;
+  border-radius: 2rem;
+  box-shadow: 0 40px 60px -30px rgba(14, 165, 233, 0.55);
+}
+
+.auth-hero h1 {
+  font-size: 3rem;
+  margin: 0 0 1rem 0;
+}
+
+.auth-hero p {
+  font-size: 1.1rem;
+  color: rgba(241, 245, 249, 0.85);
+  max-width: 420px;
+}
+
+.form-card {
+  max-width: 460px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.error-banner {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: #b91c1c;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+}
+
+.success-banner {
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  color: #15803d;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+}
+
+.game-panels {
+  display: block; /* let inner .tekken-layout control columns */
+}
+
+/* removed multi-column layout on .game-panels to allow .tekken-layout to occupy full span */
+
+.timer-display {
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+
+.timer-label {
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.outcome-banner {
+  text-align: center;
+  padding: 1.25rem;
+  border-radius: 1rem;
+  background: rgba(37, 99, 235, 0.12);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  color: #1d4ed8;
+}
+
+.outcome-banner.win {
+  background: rgba(45, 212, 191, 0.12);
+  border-color: rgba(45, 212, 191, 0.35);
+  color: #0f766e;
+}
+
+.outcome-banner.loss {
+  background: rgba(248, 113, 113, 0.12);
+  border-color: rgba(248, 113, 113, 0.35);
+  color: #b91c1c;
+}
+
+.commentary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.avatar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 1rem;
+}
+
+.avatar-option {
+  border-radius: 1rem;
+  border: 2px solid transparent;
+  padding: 0.75rem;
+  background: rgba(148, 163, 184, 0.12);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.avatar-option.selected {
+  border-color: #2563eb;
+  background: rgba(37, 99, 235, 0.12);
+  box-shadow: 0 12px 30px -12px rgba(37, 99, 235, 0.45);
+}
+
+.avatar-option img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+}
+
+.avatar-option span {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.muted {
+  color: #64748b;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Tekken-style UI */
+.tekken-layout {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 7fr 3fr; /* 70/30 split */
+  align-items: start;
+}
+
+/* Make each card fill the viewport height within the content area */
+.tekken-layout > .card {
+  width: 100%;
+  height: calc(100vh - 5rem); /* 2.5rem top + 2.5rem bottom app-content padding */
+  display: flex;
+  flex-direction: column;
+}
+
+.tekken-layout > .card .card-content {
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+@media (min-width: 1400px) {
+  .tekken-layout {
+    grid-template-columns: 7fr 3fr; /* keep ratio on large screens */
+  }
+}
+
+.tekken-stage-container {
+  position: relative;
+  background: linear-gradient(180deg, #0b1020 0%, #121a34 40%, #0f172a 100%);
+  border-radius: 1rem;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  overflow: visible;
+  padding: 1rem;
+  box-shadow: inset 0 0 80px rgba(30, 58, 138, 0.35);
+  display: flex;
+  flex-direction: column;
+}
+
+.tekken-hud {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.hud-side {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.hud-side.right {
+  text-align: right;
+}
+
+.hud-name {
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #e2e8f0;
+  text-transform: uppercase;
+}
+
+.hud-health {
+  height: 22px;
+  border-radius: 9999px;
+  background: rgba(2, 6, 23, 0.5);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  overflow: hidden;
+  position: relative;
+}
+
+.hud-health-fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #22c55e, #16a34a);
+  width: 100%;
+  transition: width 250ms ease;
+  z-index: 1;
+}
+
+.hud-health-fill.enemy {
+  background: linear-gradient(90deg, #ef4444, #b91c1c);
+}
+
+.hud-health-label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: 900;
+  font-size: 0.85rem;
+  color: #ffffff;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.45);
+  line-height: 1;
+  pointer-events: none;
+  z-index: 2;
+}
+.hud-health-label.left { left: 8px; }
+.hud-health-label.right { right: 8px; }
+
+.hud-center {
+  display: grid;
+  justify-items: center;
+}
+
+.hud-timer {
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: #fbbf24;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+.hud-status {
+  margin-top: 0.25rem;
+  font-weight: 900;
+  color: #fca5a5;
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.hud-status.visible {
+  opacity: 1;
+}
+
+.tekken-stage {
+  position: relative;
+  min-height: 560px;
+  height: auto;
+  flex: 1 1 auto; /* fill remaining vertical space */
+  border-radius: 0.75rem;
+  background: radial-gradient(50% 60% at 50% 80%, rgba(99, 102, 241, 0.25) 0%, rgba(15, 23, 42, 0.05) 60%, transparent 100%),
+    linear-gradient(180deg, rgba(30, 64, 175, 0.25) 0%, rgba(30, 58, 138, 0.15) 40%, rgba(15, 23, 42, 0.35) 100%);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  overflow: hidden;
+}
+
+.fighter-sprite {
+  position: absolute;
+  bottom: 8px;
+  width: min(40%, 520px);
+  filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.6));
+  user-select: none;
+  pointer-events: none;
+}
+
+.fighter-sprite.left {
+  left: 2%;
+}
+
+.fighter-sprite.right {
+  right: 2%;
+  transform: scaleX(-1);
+}
+
+
+.tekken-toolbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.tekken-toolbar .game-actions {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.tekken-toolbar .game-actions .btn {
+  width: auto;
+  padding: 0.55rem 1rem;
+}
+
+.tekken-toolbar .nav-link {
+  color: #e2e8f0;
+  opacity: 0.9;
+}
+
+.tekken-toolbar .nav-link:hover {
+  opacity: 1;
+  text-decoration: underline;
+  text-decoration-color: rgba(226, 232, 240, 0.75);
+}
+
+.tekken-select-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.tekken-select-card {
+  display: grid;
+  justify-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-radius: 0.9rem;
+  border: 2px solid transparent;
+  background: rgba(2, 6, 23, 0.35);
+  color: #e2e8f0;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+.tekken-select-card img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
+
+.tekken-select-card:hover {
+  border-color: rgba(99, 102, 241, 0.8);
+  box-shadow: 0 20px 45px -20px rgba(99, 102, 241, 0.55);
+}
+
+.tekken-select-card.selected {
+  border-color: #6366f1;
+  background: rgba(99, 102, 241, 0.1);
+}
+
+/* Commentary card behavior */
+.commentary-card {
+  position: sticky;
+  top: 1rem;
+}
+
+/* Sidebar layout */
+.sidebar-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+}
+
+.sidebar {
+  background: linear-gradient(180deg, #0b1020 0%, #121a34 60%, #0f172a 100%);
+  color: #e2e8f0;
+  padding: 1.5rem 1rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  box-shadow: 10px 0 40px -20px rgba(15, 23, 42, 0.6) inset;
+}
+
+.sidebar-header {
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  font-size: 1.1rem;
+  margin-bottom: 1.25rem;
+}
+
+.sidebar-nav {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.sidebar-link {
+  display: block;
+  padding: 0.6rem 0.9rem;
+  border-radius: 0.6rem;
+  color: #cbd5e1;
+}
+
+.sidebar-link:hover,
+.sidebar-link.active {
+  background: rgba(99, 102, 241, 0.15);
+  color: #fff;
+}
+
+.main-content {
+  padding: 2.5rem 1.5rem;
+}
+
+/* Hit animations */
+@keyframes shake {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-4px, 0); }
+  40% { transform: translate(4px, 0); }
+  60% { transform: translate(-3px, 0); }
+  80% { transform: translate(3px, 0); }
+  100% { transform: translate(0, 0); }
+}
+
+.shake {
+  animation: shake 300ms ease;
+}
+
+@keyframes float-up {
+  0% { opacity: 0; transform: translateY(8px); }
+  20% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-28px); }
+}
+
+.float-number {
+  position: absolute;
+  font-weight: 800;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+  animation: float-up 900ms ease forwards;
+}
+
+.float-number.damage { color: #f87171; }
+.float-number.heal { color: #34d399; }
+
+/* Dashboard */
+.dashboard {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.dashboard-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.18), rgba(37, 99, 235, 0.18));
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  border-radius: 1.25rem;
+  box-shadow: 0 25px 50px -20px rgba(15, 23, 42, 0.35);
+}
+
+.dashboard-hero .hero-greeting h1 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.dashboard-hero .quick-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* Timeline */
+.timeline {
+  display: grid;
+  gap: 0.75rem;
+  padding-left: 0.75rem;
+  border-left: 2px solid rgba(148, 163, 184, 0.3);
+}
+
+.timeline-entry {
+  position: relative;
+  background: rgba(15, 23, 42, 0.03);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+}
+
+.timeline-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.timeline-meta {
+  margin-top: 0.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+}
+
+.status-badge.won {
+  background: rgba(34, 197, 94, 0.12);
+  color: #15803d;
+  border-color: rgba(34, 197, 94, 0.35);
+}
+
+.status-badge.lost {
+  background: rgba(239, 68, 68, 0.12);
+  color: #b91c1c;
+  border-color: rgba(239, 68, 68, 0.35);
+}
+
+.status-badge.draw {
+  background: rgba(251, 191, 36, 0.12);
+  color: #b45309;
+  border-color: rgba(251, 191, 36, 0.35);
+}
+
+.status-badge.in-progress {
+  background: rgba(59, 130, 246, 0.12);
+  color: #1d4ed8;
+  border-color: rgba(59, 130, 246, 0.35);
+}
