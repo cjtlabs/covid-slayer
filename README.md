@@ -50,12 +50,12 @@ covid-slayer/
 └── README.md
 ```
 
-## How to run?
+## How to run locally?
 
 ### Prerequisites
 - Node.js (v16 or higher)
-- MongoDB
-- npm or yarn
+- MongoDB (Atlas or local)
+- npm
 
 ### Backend Setup
 
@@ -108,3 +108,29 @@ The backend will be available at `http://localhost:4000`
    ```
 
 The frontend will be available at `http://localhost:5173`
+
+## How to docker locally?
+
+### Prerequisites
+- MongoDB (Atlas or local)
+- env in project root
+
+1. Navigate to the root directory:
+   ```bash
+   cd covid-slayer
+   ```
+2. Copy environment file:
+   ```bash
+   cp .env.example .env
+   ```
+3. Replace JWT_SECRET value in `.env` with your own secret key:
+   ```env
+   JWT_SECRET=your-super-secret-jwt-key
+   ```
+4. Build and run the containers:
+   ```bash
+   docker compose up
+   ```
+5. Access the application:
+   - Frontend: `http://localhost`
+   - Backend API: `http://localhost:4000`
